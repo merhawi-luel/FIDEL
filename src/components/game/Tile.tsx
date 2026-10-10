@@ -24,6 +24,7 @@ export default function Tile({
   state = "default",
   colorIndex, // 1..7 position color, optional
   onClick,
+  onPointerDown,
   disabled,
   className = "",
   children,
@@ -33,6 +34,7 @@ export default function Tile({
   state?: TileState;
   colorIndex?: number;
   onClick?: () => void;
+  onPointerDown?: (event: React.PointerEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   className?: string;
   children?: ReactNode;
@@ -45,10 +47,11 @@ export default function Tile({
     <button
       type="button"
       onClick={onClick}
+      onPointerDown={onPointerDown}
       disabled={disabled}
       aria-label={sub ? `${glyph} (${sub})` : String(glyph)}
       style={colorStyle}
-      className={`flex min-h-16 min-w-16 flex-col items-center justify-center rounded-[20px] px-3 py-2 transition-transform duration-150 ${
+      className={`touch-none flex min-h-16 min-w-16 flex-col items-center justify-center rounded-[20px] px-3 py-2 transition-transform duration-150 ${
         colorStyle ? "" : stateStyles[state]
       } ${disabled ? "cursor-not-allowed" : "cursor-pointer active:translate-y-1"} ${className}`}
     >

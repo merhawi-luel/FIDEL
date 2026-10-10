@@ -13,6 +13,7 @@ export default function Slot({
   onClick,
   children,
   className = "",
+  slotIndex,
 }: {
   filled?: boolean;
   hint?: string;
@@ -21,6 +22,7 @@ export default function Slot({
   pop?: boolean;
   colorIndex?: number;
   index?: number;
+  slotIndex?: number;
   onClick?: () => void;
   children?: ReactNode;
   className?: string;
@@ -31,6 +33,8 @@ export default function Slot({
     <button
       type="button"
       onClick={onClick}
+      data-word-slot
+      data-word-slot-index={slotIndex}
       style={{ background: fill, borderColor: edge }}
       className={`relative flex min-h-16 min-w-16 flex-col items-center justify-center rounded-[20px] border-4 border-dashed px-2 py-2 transition-all duration-150 ${
         glow ? "scale-105 ring-4 ring-[var(--green)]/40" : ""

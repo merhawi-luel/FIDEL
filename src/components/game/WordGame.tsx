@@ -75,6 +75,9 @@ export default function WordGame({
   const [progress, setProgress] = useState<Progress | null>(null);
   const [hintTimes, setHintTimes] = useState(0);
   const starRef = useRef<HTMLSpanElement>(null);
+  const draggingTile = useRef<number | null>(null);
+  const draggedWithPointer = useRef(false);
+  const suppressNextClick = useRef(false);
 
   const word = sessionWords[roundIndex % sessionWords.length];
 
@@ -94,6 +97,41 @@ export default function WordGame({
     setMascot("idle");
     setMessage("Build the word!");
   }, [word]);
+
+  useEffect(() => {
+    function finishPointerDrag(event: PointerEvent) {
+      const trayIdx = draggingTile.current;
+      if (trayIdx === null) return;
+
+      const target = document.elementFromPoint(event.clientX, event.clientY);
+      const slot = target?.closest("[data-word-slot]");
+      const slotIndex = slot?.getAttribute("data-word-slot-index");
+
+      if (draggedWithPointer.current && slotIndex !== null && slotIndex !== undefined) {
+        placeTile(trayIdx, Number(slotIndex));
+        suppressNextClick.current = true;
+      }
+
+      draggingTile.current = null;
+      draggedWithPointer.current = false;
+    }
+
+    function trackPointer(event: PointerEvent) {
+      if (draggingTile.current === null) return;
+      if (Math.abs(event.movementX) + Math.abs(event.movementY) > 4) {
+        draggedWithPointer.current = true;
+      }
+    }
+
+    window.addEventListener("pointermove", trackPointer);
+    window.addEventListener("pointerup", finishPointerDrag);
+    window.addEventListener("pointercancel", finishPointerDrag);
+    return () => {
+      window.removeEventListener("pointermove", trackPointer);
+      window.removeEventListener("pointerup", finishPointerDrag);
+      window.removeEventListener("pointercancel", finishPointerDrag);
+    };
+  });
 
   const placedCount = slots.filter((s) => s !== null).length;
   const solved =
@@ -209,6 +247,11 @@ export default function WordGame({
   }
 
   function clickTile(trayIdx: number) {
+    if (suppressNextClick.current) {
+      suppressNextClick.current = false;
+      return;
+    }
+
     const placedAt = slots.indexOf(trayIdx);
     if (placedAt !== -1) {
       const nextSlots = [...slots];
@@ -327,6 +370,7 @@ export default function WordGame({
               return (
                 <Slot
                   key={i}
+                  slotIndex={i}
                   filled={filled}
                   glow={selected !== null && !filled}
                   shake={shakeSlot === i || (phase === "tryagain" && shakeSlot === 0)}
@@ -369,6 +413,10 @@ export default function WordGame({
                       sub={word.roman.split("-")[i]}
                       state="placed"
                       onClick={() => clickTile(i)}
+                      onPointerDown={(event) => {
+                        event.preventDefault();
+                        draggingTile.current = i;
+                      }}
                     />
                   );
                 }
@@ -379,6 +427,10 @@ export default function WordGame({
                     sub={word.roman.split("-")[i]}
                     state={selected === i ? "selected" : "default"}
                     onClick={() => clickTile(i)}
+                    onPointerDown={(event) => {
+                      event.preventDefault();
+                      draggingTile.current = i;
+                    }}
                   />
                 );
               })}
