@@ -32,26 +32,15 @@ const WORD_TOO_LINES = [
 ];
 
 function pickWords(level: number, count: number): GameWord[] {
-  const preferred = shuffle(WORDS.filter((word) => word.level === level));
-  const byLength = new Map<number, GameWord[]>();
-
-  for (const word of shuffle(WORDS)) {
+  const lengthMatches = WORDS.filter((word) => {
     const length = word.syllables.length;
-    const group = byLength.get(length) ?? [];
-    group.push(word);
-    byLength.set(length, group);
-  }
-
-  const varied = [...byLength.values()]
-    .map((group) => group[0])
-    .filter((word): word is GameWord => word !== undefined);
-  const preferredSet = new Set(preferred.slice(0, Math.min(2, count)));
-  const candidates = [
-    ...preferred.slice(0, Math.min(2, count)),
-    ...shuffle([...varied, ...WORDS]).filter((word) => !preferredSet.has(word)),
-  ];
-
-  return candidates.slice(0, count);
+    if (level === 1) return length <= 2;
+    if (level === 2) return length === 3;
+    return length >= 4;
+  });
+  const levelMatches = WORDS.filter((word) => word.level === level);
+  const pool = lengthMatches.length >= count ? lengthMatches : levelMatches;
+  return shuffle(pool.length ? pool : WORDS).slice(0, count);
 }
 
 export default function WordGame({

@@ -300,7 +300,13 @@ export default function FamilyGame({
                   {i + 1}
                 </span>
                 <span className="font-ethiopic text-[2rem] font-black text-[#1f3a2e]">
-                  {filled ? family.forms[slots[i]!.trayIdx] : family.sounds[i]}
+                  {filled
+                    ? family.forms[slots[i]!.trayIdx]
+                    : difficulty === "easy"
+                      ? family.sounds[i]
+                      : difficulty === "medium"
+                        ? `${family.sounds[i][0]}…`
+                        : "?"}
                 </span>
               </button>
             );
