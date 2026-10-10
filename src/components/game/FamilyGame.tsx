@@ -56,6 +56,9 @@ export default function FamilyGame({
   const [trayOrder, setTrayOrder] = useState<number[]>(() =>
     shuffle(family.forms.map((_, i) => i)),
   );
+  const draggingTile = useRef<number | null>(null);
+  const draggedWithPointer = useRef(false);
+  const suppressNextClick = useRef(false);
 
   useEffect(() => {
     setSlots(Array(7).fill(null));
@@ -76,6 +79,40 @@ export default function FamilyGame({
     });
     setTrayOrder((prev) => prev.filter((t) => !keep.includes(t)));
   }, [difficulty, family]);
+
+  useEffect(() => {
+    function trackPointer(event: PointerEvent) {
+      if (draggingTile.current === null) return;
+      if (Math.abs(event.movementX) + Math.abs(event.movementY) > 4) {
+        draggedWithPointer.current = true;
+      }
+    }
+
+    function finishPointerDrag(event: PointerEvent) {
+      const trayIdx = draggingTile.current;
+      if (trayIdx === null) return;
+
+      const target = document.elementFromPoint(event.clientX, event.clientY);
+      const slot = target?.closest("[data-family-slot]");
+      const slotIndex = slot?.getAttribute("data-family-slot-index");
+      if (draggedWithPointer.current && slotIndex !== null && slotIndex !== undefined) {
+        tryPlace(trayIdx, Number(slotIndex));
+        suppressNextClick.current = true;
+      }
+
+      draggingTile.current = null;
+      draggedWithPointer.current = false;
+    }
+
+    window.addEventListener("pointermove", trackPointer);
+    window.addEventListener("pointerup", finishPointerDrag);
+    window.addEventListener("pointercancel", finishPointerDrag);
+    return () => {
+      window.removeEventListener("pointermove", trackPointer);
+      window.removeEventListener("pointerup", finishPointerDrag);
+      window.removeEventListener("pointercancel", finishPointerDrag);
+    };
+  });
 
   const solved = slots.every((s, i) => s !== null && s.trayIdx === i);
 
@@ -140,6 +177,14 @@ export default function FamilyGame({
     }
     setMascot("hint");
     setTimeout(() => setMascot("idle"), 1200);
+  }
+
+  function selectTrayTile(trayIdx: number) {
+    if (suppressNextClick.current) {
+      suppressNextClick.current = false;
+      return;
+    }
+    setSelected(selected === trayIdx ? null : trayIdx);
   }
 
   const rows = desktop ? [Array.from({ length: 7 }, (_, i) => i)] : [[0, 1, 2, 3], [4, 5, 6]];
@@ -248,6 +293,8 @@ export default function FamilyGame({
                   poppedSlot === i ? "animate-[pop_0.35s_ease-out]" : ""
                 }`}
                 aria-label={`Slot ${i + 1}`}
+                data-family-slot
+                data-family-slot-index={i}
               >
                 <span className="absolute left-2 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white/80 text-[10px] font-black text-[#1f3a2e]">
                   {i + 1}
@@ -294,7 +341,11 @@ export default function FamilyGame({
                   dragIdx.current = null;
                   setHoverSlot(null);
                 }}
-                onClick={() => setSelected(selected === t ? null : t)}
+                onClick={() => selectTrayTile(t)}
+                onPointerDown={(event) => {
+                  event.preventDefault();
+                  draggingTile.current = t;
+                }}
                 className={`flex h-16 w-16 items-center justify-center rounded-[18px] border-[3px] border-transparent text-[#1f3a2e] shadow-[0_4px_0_rgba(142,131,108,0.32)] transition-transform ${
                   active ? "ring-2 ring-[#d7c86a]" : ""
                 } ${hintTile === t ? "animate-[pulse-hint_1s_ease-in-out_infinite]" : ""}`}
