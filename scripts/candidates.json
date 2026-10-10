@@ -1,0 +1,474 @@
+[
+  {
+    "en": "cat",
+    "candidates": [
+      {
+        "word": "ድመት",
+        "pos": "noun",
+        "gloss": "cat",
+        "exact": true,
+        "translit": "dəmmät"
+      }
+    ]
+  },
+  {
+    "en": "dog",
+    "candidates": [
+      {
+        "word": "ከልብ",
+        "pos": "noun",
+        "gloss": "dog",
+        "exact": true,
+        "translit": "kälb"
+      },
+      {
+        "word": "ውሻ",
+        "pos": "noun",
+        "gloss": "dog",
+        "exact": true,
+        "translit": "wəšša"
+      }
+    ]
+  },
+  {
+    "en": "cow",
+    "candidates": [
+      {
+        "word": "ላም",
+        "pos": "noun",
+        "gloss": "cow (female bovine)",
+        "exact": false,
+        "translit": "lam"
+      }
+    ]
+  },
+  {
+    "en": "bird",
+    "candidates": [
+      {
+        "word": "ወፍ",
+        "pos": "noun",
+        "gloss": "bird",
+        "exact": true,
+        "translit": "wäf"
+      }
+    ]
+  },
+  {
+    "en": "sheep",
+    "candidates": [
+      {
+        "word": "በግ",
+        "pos": "noun",
+        "gloss": "sheep, ram",
+        "exact": false,
+        "translit": "bäg"
+      }
+    ]
+  },
+  {
+    "en": "chicken",
+    "candidates": []
+  },
+  {
+    "en": "fish",
+    "candidates": [
+      {
+        "word": "ዓሣ",
+        "pos": "noun",
+        "gloss": "fish",
+        "exact": true,
+        "translit": "ʿaśa"
+      },
+      {
+        "word": "አሳ",
+        "pos": "noun",
+        "gloss": "fish",
+        "exact": true,
+        "translit": "asa"
+      }
+    ]
+  },
+  {
+    "en": "horse",
+    "candidates": [
+      {
+        "word": "ፈረስ",
+        "pos": "noun",
+        "gloss": "horse",
+        "exact": true,
+        "translit": "färäs"
+      }
+    ]
+  },
+  {
+    "en": "donkey",
+    "candidates": [
+      {
+        "word": "አህያ",
+        "pos": "noun",
+        "gloss": "donkey, ass",
+        "exact": false,
+        "translit": "ʾahəyya"
+      }
+    ]
+  },
+  {
+    "en": "water",
+    "candidates": [
+      {
+        "word": "ውኃ",
+        "pos": "noun",
+        "gloss": "water",
+        "exact": true,
+        "translit": "wəḫa"
+      }
+    ]
+  },
+  {
+    "en": "bread",
+    "candidates": [
+      {
+        "word": "ዳቦ",
+        "pos": "noun",
+        "gloss": "bread",
+        "exact": true,
+        "translit": "dabo"
+      }
+    ]
+  },
+  {
+    "en": "milk",
+    "candidates": [
+      {
+        "word": "ወተት",
+        "pos": "noun",
+        "gloss": "milk",
+        "exact": true,
+        "translit": "wätät"
+      }
+    ]
+  },
+  {
+    "en": "egg",
+    "candidates": []
+  },
+  {
+    "en": "coffee",
+    "candidates": [
+      {
+        "word": "ቡን",
+        "pos": "noun",
+        "gloss": "coffee",
+        "exact": true,
+        "translit": "bunn"
+      },
+      {
+        "word": "ቡና",
+        "pos": "noun",
+        "gloss": "coffee",
+        "exact": true,
+        "translit": "bunna"
+      }
+    ]
+  },
+  {
+    "en": "meat",
+    "candidates": [
+      {
+        "word": "ስጋ",
+        "pos": "noun",
+        "gloss": "meat",
+        "exact": true,
+        "translit": "səga"
+      },
+      {
+        "word": "ሥጋ",
+        "pos": "noun",
+        "gloss": "meat, flesh",
+        "exact": false,
+        "translit": "śəga"
+      }
+    ]
+  },
+  {
+    "en": "house",
+    "candidates": [
+      {
+        "word": "ቤት",
+        "pos": "noun",
+        "gloss": "house",
+        "exact": true,
+        "translit": "bet"
+      }
+    ]
+  },
+  {
+    "en": "tree",
+    "candidates": [
+      {
+        "word": "ዛፍ",
+        "pos": "noun",
+        "gloss": "tree",
+        "exact": true,
+        "translit": "zaf"
+      }
+    ]
+  },
+  {
+    "en": "sun",
+    "candidates": [
+      {
+        "word": "ፀሐይ",
+        "pos": "noun",
+        "gloss": "sun",
+        "exact": true,
+        "translit": "ṣ́äḥay"
+      },
+      {
+        "word": "ጀምበር",
+        "pos": "noun",
+        "gloss": "sun",
+        "exact": true,
+        "translit": "ǧämbär"
+      }
+    ]
+  },
+  {
+    "en": "moon",
+    "candidates": [
+      {
+        "word": "ጨረቃ",
+        "pos": "noun",
+        "gloss": "moon",
+        "exact": true,
+        "translit": "č̣äräḳa"
+      }
+    ]
+  },
+  {
+    "en": "star",
+    "candidates": [
+      {
+        "word": "ኮከብ",
+        "pos": "noun",
+        "gloss": "star",
+        "exact": true,
+        "translit": "kokäb"
+      },
+      {
+        "word": "ሕ",
+        "pos": "noun",
+        "gloss": "star",
+        "exact": true,
+        "translit": "ḥə"
+      }
+    ]
+  },
+  {
+    "en": "book",
+    "candidates": [
+      {
+        "word": "መጽሐፍ",
+        "pos": "noun",
+        "gloss": "book",
+        "exact": true,
+        "translit": "mäṣḥäf"
+      },
+      {
+        "word": "ክታብ",
+        "pos": "noun",
+        "gloss": "book, document",
+        "exact": false,
+        "translit": "kətab"
+      }
+    ]
+  },
+  {
+    "en": "door",
+    "candidates": [
+      {
+        "word": "በር",
+        "pos": "noun",
+        "gloss": "door, gate",
+        "exact": false,
+        "translit": "bär"
+      }
+    ]
+  },
+  {
+    "en": "mother",
+    "candidates": [
+      {
+        "word": "እናት",
+        "pos": "noun",
+        "gloss": "mother",
+        "exact": true,
+        "translit": "ʼənnat"
+      }
+    ]
+  },
+  {
+    "en": "father",
+    "candidates": [
+      {
+        "word": "አባት",
+        "pos": "noun",
+        "gloss": "father",
+        "exact": true,
+        "translit": "ʾabbat"
+      },
+      {
+        "word": "እባት",
+        "pos": "noun",
+        "gloss": "father",
+        "exact": true,
+        "translit": "ʼəbat"
+      }
+    ]
+  },
+  {
+    "en": "sister",
+    "candidates": [
+      {
+        "word": "እኅት",
+        "pos": "noun",
+        "gloss": "sister",
+        "exact": true,
+        "translit": "ʾəḫət"
+      },
+      {
+        "word": "እህት",
+        "pos": "noun",
+        "gloss": "sister",
+        "exact": true,
+        "translit": "ʼəhət"
+      }
+    ]
+  },
+  {
+    "en": "brother",
+    "candidates": [
+      {
+        "word": "ወንድም",
+        "pos": "noun",
+        "gloss": "brother",
+        "exact": true,
+        "translit": "wändəmm"
+      }
+    ]
+  },
+  {
+    "en": "baby",
+    "candidates": [
+      {
+        "word": "ሕፃን",
+        "pos": "noun",
+        "gloss": "baby, infant",
+        "exact": false,
+        "translit": "ḥəṣ́an"
+      }
+    ]
+  },
+  {
+    "en": "friend",
+    "candidates": [
+      {
+        "word": "ጓደኛ",
+        "pos": "noun",
+        "gloss": "friend",
+        "exact": true,
+        "translit": "gʷaddäñña"
+      },
+      {
+        "word": "ጓድ",
+        "pos": "noun",
+        "gloss": "friend",
+        "exact": true,
+        "translit": "gʷad"
+      },
+      {
+        "word": "ወዳጅ",
+        "pos": "noun",
+        "gloss": "friend",
+        "exact": true,
+        "translit": "wädaǧ"
+      }
+    ]
+  },
+  {
+    "en": "eye",
+    "candidates": [
+      {
+        "word": "ዓይን",
+        "pos": "noun",
+        "gloss": "eye (organ)",
+        "exact": false,
+        "translit": "ʿayn"
+      },
+      {
+        "word": "ጆሮ",
+        "pos": "noun",
+        "gloss": "eye (of a needle)",
+        "exact": false,
+        "translit": "ǧoro"
+      }
+    ]
+  },
+  {
+    "en": "hand",
+    "candidates": []
+  },
+  {
+    "en": "nose",
+    "candidates": [
+      {
+        "word": "አፍንጫ",
+        "pos": "noun",
+        "gloss": "nose, nostril",
+        "exact": false,
+        "translit": "ʾafənč̣a"
+      }
+    ]
+  },
+  {
+    "en": "mouth",
+    "candidates": [
+      {
+        "word": "አፍ",
+        "pos": "noun",
+        "gloss": "mouth",
+        "exact": true,
+        "translit": "ʾaf"
+      }
+    ]
+  },
+  {
+    "en": "red",
+    "candidates": [
+      {
+        "word": "ቀይ",
+        "pos": "adj",
+        "gloss": "red",
+        "exact": true,
+        "translit": "ḳäy"
+      }
+    ]
+  },
+  {
+    "en": "green",
+    "candidates": []
+  },
+  {
+    "en": "yellow",
+    "candidates": [
+      {
+        "word": "ብጫ",
+        "pos": "adj",
+        "gloss": "yellow",
+        "exact": true,
+        "translit": "bəč̣a"
+      }
+    ]
+  }
+]
