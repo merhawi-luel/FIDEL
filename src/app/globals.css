@@ -1,26 +1,34 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --cream: #fff9ec;
+  --ink: #1f3a2e;
+  --muted: #5f7469;
+  --line: #e6e0cf;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --green: #55a868;
+  --green-dark: #3a8250;
+  --soft: #f0ece2;
+  --soft-edge: #ddd6c4;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* The 7 letter positions: fill and edge colors */
+  --c1: #fff0b8; --c1-edge: #f4c84a;
+  --c2: #ffe0d0; --c2-edge: #f0a070;
+  --c3: #fadadd; --c3-edge: #e87a85;
+  --c4: #e8e0f4; --c4-edge: #a98bc9;
+  --c5: #dcebf7; --c5-edge: #5aa7d8;
+  --c6: #d5efe6; --c6-edge: #4fb08c;
+  --c7: #dff2d6; --c7-edge: #6fb063;
+
+  --amber-ink: #8a6a00;
+  --blue-ink: #2f6f9a;
+  --coral-ink: #b0453f;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+.font-ethiopic {
+  font-family: var(--font-ethiopic), var(--font-nunito), sans-serif;
 }
